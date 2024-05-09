@@ -13,7 +13,7 @@ public class Display extends JFrame {
     public Display(ArrayList<Teacher> teachers){
         super("Display");
         setDefaultCloseOperation(DISPOSE_ON_CLOSE);
-        setSize(1200,500);
+        setSize(1000,500);
         setLocationRelativeTo(null);
         setVisible(true);
 
@@ -25,13 +25,7 @@ public class Display extends JFrame {
             back();
         });
 
-
-
         String[] columnsNamesArray = {"Teacher Id", "Teacher Name", "Address", "Working Type", "Employment Status", "Teacher Type"};
-//        ArrayList<Teacher> teacher = new ArrayList<>();
-//        for (Teacher teacher1: teachers){
-//            teachers.add((Teacher) teacher1);
-//        }
 
         String[][] informationArray = new String[teachers.size()][6];
         for (int i=0; i<teachers.size();i++){
@@ -42,8 +36,8 @@ public class Display extends JFrame {
             informationArray[i][3] = teacher.getWorkingType();
             informationArray[i][4] = teacher.getEmploymentStatus();
             informationArray[i][5] = teacher instanceof Lecturer? "Lecturer" : "Tutor";
-
         }
+
         JTable table = new JTable(informationArray,columnsNamesArray);
         JScrollPane scrollPane = new JScrollPane(table);
         displayPanel.add(scrollPane);

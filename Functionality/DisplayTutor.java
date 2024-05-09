@@ -13,7 +13,7 @@ public class DisplayTutor extends JFrame {
     public DisplayTutor(ArrayList<Teacher> teachers) {
         super("Display Tutor");
         setDefaultCloseOperation(DISPOSE_ON_CLOSE);
-        setSize(1200, 500);
+        setSize(1250, 500);
         setLocationRelativeTo(null);
         setResizable(false);
         setVisible(true);

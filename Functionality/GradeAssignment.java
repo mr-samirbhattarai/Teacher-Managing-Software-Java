@@ -23,6 +23,7 @@ public class GradeAssignment extends JFrame {
         setLocationRelativeTo(null);
         setVisible(true);
 
+        // create panel
         JPanel gradeAssignmentPanel = new JPanel();
         gradeAssignmentPanel.setLayout(new GridBagLayout());
         gradeAssignmentPanel.setBackground(Color.LIGHT_GRAY);
@@ -90,9 +91,10 @@ public class GradeAssignment extends JFrame {
                         if (lecturer != null) {
                             if (lecturer.getDepartment().equals(departmentText)) {
                                 if (yearsOfExperience >= 5) {
-                                    clear();
-                                    // Update teacher's grading status and score
+                                    // Update graded score
                                     lecturer.gradeAssignment(gradedScore,departmentText,yearsOfExperience);
+                                    JOptionPane.showMessageDialog(null, "Successfully Graded!");
+                                    clear();
                                 } else {
                                     JOptionPane.showMessageDialog(null, "Teacher doesn't have enough experience to grade.");
                                 }
@@ -109,14 +111,17 @@ public class GradeAssignment extends JFrame {
             }
         });
 
+        // clear button function
         clearButton.addActionListener(Action ->{
             clear();
         });
 
+        // back button function
         backButton.addActionListener(Action ->{
             back();
         });
 
+        // back button function
         displayButton.addActionListener(Action ->{
             new DisplayLecturer(teachers);
         });
@@ -206,22 +211,32 @@ public class GradeAssignment extends JFrame {
         constraints.gridwidth = 2;
         constraints.anchor = GridBagConstraints.CENTER;
         gradeAssignmentPanel.add(displayButton,constraints);
-        add(gradeAssignmentPanel);
 
         constraints.gridx = 0;
         constraints.gridy = 8;
         constraints.gridwidth = 2;
         constraints.anchor = GridBagConstraints.CENTER;
+        gradeAssignmentPanel.add(clearButton,constraints);
+
+        constraints.gridx = 0;
+        constraints.gridy = 9;
+        constraints.gridwidth = 2;
+        constraints.anchor = GridBagConstraints.CENTER;
         gradeAssignmentPanel.add(backButton,constraints);
 
+        add(gradeAssignmentPanel);
 
     }
+
+    // clear method
     public void clear() {
         teacherIdTextField.setText("");
         gradedScoreTextField.setText("");
         departmentTextField.setText("");
         yearsOfExperienceTextField.setText("");
     }
+
+    // back method
     public void back(){
         setVisible(false);
     }

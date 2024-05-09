@@ -1,13 +1,11 @@
 package Functionality;
 
-import CourseWork1.Lecturer;
 import CourseWork1.Teacher;
 import CourseWork1.Tutor;
 import CustomJPackages.CustomButton;
 import CustomJPackages.CustomComboBox;
 import CustomJPackages.CustomLabel;
 import CustomJPackages.CustomTextField;
-
 import javax.swing.*;
 import java.awt.*;
 import java.util.ArrayList;
@@ -26,13 +24,14 @@ public class AddTutor extends JFrame {
         setVisible(true);
         setDefaultCloseOperation(DISPOSE_ON_CLOSE);
 
+        // create panel
         JPanel tutorPanel = new JPanel();
-        tutorPanel.setBackground(Color.LIGHT_GRAY);
-        tutorPanel.setLayout(new GridBagLayout());
+        tutorPanel.setBackground(Color.LIGHT_GRAY);     // set color to light grey
+        tutorPanel.setLayout(new GridBagLayout());      // set layout to grid layout
 
+        // labels
         titleLabel = new CustomLabel("Add Tutor");
         titleLabel.setFont(new Font("Poppins", Font.BOLD,20));
-
         teacherIdLabel = new CustomLabel("Teacher Id");
         teacherNameLabel = new CustomLabel("Teacher Name");
         addressLabel = new CustomLabel("Address");
@@ -44,6 +43,7 @@ public class AddTutor extends JFrame {
         academicQualificationLabel = new CustomLabel("Academic Qualification");
         performanceIndexLabel = new CustomLabel("Performance Index");
 
+        // text fields
         teacherIdTextField = new CustomTextField("");
         teacherNameTextField = new CustomTextField("");
         addressTextField = new CustomTextField("");
@@ -51,19 +51,21 @@ public class AddTutor extends JFrame {
         salaryTextField = new CustomTextField("");
         specializationTextField = new CustomTextField("");
 
+        // combo boxes
         workingTypeComboBox = new CustomComboBox(new String[]{"Select Working Type", "Full Time", "Part Time", "Module Wise"});
         employmentStatusComboBox = new CustomComboBox(new String[]{"Select Employment Status", "In-Field", "Remote"});
         academicQualificationComboBox = new CustomComboBox(new String[]{"Select Academic Qualification", "Bachelor", "Master", "Phd"});
         performanceIndexComboBox = new CustomComboBox(new String[]{"Select Performance Index", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10"});
 
-
+        // buttons
         addTutorButton = new CustomButton("Add Tutor");
         clearButton = new CustomButton("Clear");
         backButton = new CustomButton("Back");
         displayTutorButton = new CustomButton("Display Tutor");
         goBackButton = new CustomButton("Back");
 
-        //Action Listener
+
+        // addTutor button action listener
         addTutorButton.addActionListener(Action -> {
             String teacherIdText = teacherIdTextField.getText();
             String teacherNameText = teacherNameTextField.getText();
@@ -73,7 +75,7 @@ public class AddTutor extends JFrame {
             String specializationText = specializationTextField.getText();
 
 
-            if (teacherIdText.isEmpty()){           // || teacherNameText.isEmpty() || addressText.isEmpty() || workingTypeComboBox.getSelectedIndex()== 0 || employmentStatusComboBox.getSelectedIndex()== 0 || workingHoursText.isEmpty() || salaryText.isEmpty() || specializationText.isEmpty() || academicQualificationComboBox.getSelectedIndex() == 0 || performanceIndexComboBox.getSelectedIndex() == 0) {
+            if (teacherIdText.isEmpty()){
                 JOptionPane.showMessageDialog(null, "Please fill the field for teacher id");
             }else if(teacherNameText.isEmpty()){
                 JOptionPane.showMessageDialog(null, "Please fill the field for teacher name");
@@ -103,7 +105,7 @@ public class AddTutor extends JFrame {
                     String academicQualification = (String) academicQualificationComboBox.getSelectedItem();
                     int performanceIndex = Integer.parseInt((String) (performanceIndexComboBox.getSelectedItem()));
 
-                    if(teacherId <= 0){         // || workingHours <= 0 || salary <= 0 || performanceIndex <= 0){
+                    if(teacherId <= 0){
                         JOptionPane.showMessageDialog(null,"Error!\nTeacher Id cannot be negative");
                     }else if (workingHours <= 0){
                         JOptionPane.showMessageDialog(null,"Error!\nWorking Hours cannot be negative");
@@ -129,20 +131,24 @@ public class AddTutor extends JFrame {
         }
         });
 
+        // clear button action listener
         clearButton.addActionListener(Action ->{
             clear();
         });
 
+        // back displayTutor button action listener
         displayTutorButton.addActionListener(Action ->{
             new DisplayTutor(teachers);
         });
 
+        // back button action listener
         goBackButton.addActionListener(Action ->{
             back();
         });
 
         GridBagConstraints constraints = new GridBagConstraints();
 
+        // placing components like label, textfield, combobox, buttons
         constraints.gridx = 0;
         constraints.gridy = 0;
         constraints.gridwidth = 2;
@@ -296,8 +302,10 @@ public class AddTutor extends JFrame {
         constraints.anchor = GridBagConstraints.CENTER;
         tutorPanel.add(goBackButton,constraints);
 
+        // add tutorPanel to frame in border layout
         add(tutorPanel, BorderLayout.CENTER);
     }
+    // method for clear function
     public void clear(){
         teacherIdTextField.setText("");
         teacherNameTextField.setText("");
@@ -311,7 +319,8 @@ public class AddTutor extends JFrame {
         performanceIndexComboBox.setSelectedIndex(0);
     }
 
+    // method for back function
     public void back(){
-        setVisible(false);
+        setVisible(false);      // visible is set false
     }
 }

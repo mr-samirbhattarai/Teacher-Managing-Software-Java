@@ -2,7 +2,6 @@ package CustomJPackages;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.geom.RoundRectangle2D;
 
 public class CustomButton extends JButton {
 
@@ -22,7 +21,7 @@ public class CustomButton extends JButton {
                 if (getModel().isPressed()) {
                     g.setColor(Color.lightGray);
                 }else if(getModel().isRollover()){
-                    g.setColor(new Color(22, 56, 72));
+                    g.setColor(new Color(13, 39, 73, 255));
                 }
                 else {
                     g.setColor(getBackground());

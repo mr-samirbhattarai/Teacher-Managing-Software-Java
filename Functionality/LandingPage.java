@@ -3,7 +3,6 @@ package Functionality;
 import CourseWork1.Teacher;
 import CustomJPackages.CustomButton;
 import CustomJPackages.CustomLabel;
-
 import javax.swing.*;
 import java.awt.*;
 import java.util.ArrayList;

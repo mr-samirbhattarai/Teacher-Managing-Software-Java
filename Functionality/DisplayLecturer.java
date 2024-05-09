@@ -14,7 +14,7 @@ public class DisplayLecturer extends JFrame {
     public DisplayLecturer(ArrayList<Teacher> teachers) {
         super("Display Lecturer");
         setDefaultCloseOperation(DISPOSE_ON_CLOSE);
-        setSize(800, 500);
+        setSize(1000, 500);
         setLocationRelativeTo(null);
         setResizable(false);
         setVisible(true);
@@ -26,23 +26,24 @@ public class DisplayLecturer extends JFrame {
             back();
         });
 
-        String[] columnNamesArray = {"Teacher Id", "Teacher Name", "Address", "Years of Experience", "Working Type ","Employment Status", "Graded Score"};
+        String[] columnNamesArray = {"Teacher Id", "Teacher Name", "Address","Employment Status", "Department", "Years of Experience", "Working Type ", "Graded Score"};
         ArrayList<Lecturer> lecturers = new ArrayList<>();
         for (Teacher teacher : teachers) {      // for (String "datatype" variable :collection)
             if (teacher instanceof Lecturer) {
                 lecturers.add((Lecturer) teacher);
             }
         }
-        String[][] informationArray = new String[lecturers.size()][7];
+        String[][] informationArray = new String[lecturers.size()][8];
         for (int i = 0; i < lecturers.size(); i++) {
             Lecturer lecturer = lecturers.get(i);
             informationArray[i][0] = String.valueOf(lecturer.getTeacherId());
             informationArray[i][1] = lecturer.getTeacherName();
             informationArray[i][2] = lecturer.getAddress();
-            informationArray[i][3] = String.valueOf(lecturer.getYearsOfExperience());
-            informationArray[i][4] = lecturer.getWorkingType();
-            informationArray[i][5] = lecturer.getEmploymentStatus();
-            informationArray[i][6] = String.valueOf(lecturer.getGradedScore());
+            informationArray[i][3] = lecturer.getEmploymentStatus();
+            informationArray[i][4] = lecturer.getDepartment();
+            informationArray[i][5] = String.valueOf(lecturer.getYearsOfExperience());
+            informationArray[i][6] = lecturer.getWorkingType();
+            informationArray[i][7] = String.valueOf(lecturer.getGradedScore());
         }
         JTable table = new JTable(informationArray, columnNamesArray);
         JScrollPane scrollPane = new JScrollPane(table);

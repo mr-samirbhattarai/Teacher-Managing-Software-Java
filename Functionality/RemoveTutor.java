@@ -51,7 +51,7 @@ public class RemoveTutor extends JFrame {
                     int teacherId = Integer.parseInt(teacherIdText);
 
                     for(Teacher teacher : teachers) {
-                        if (teacher instanceof Tutor && teacher.getTeacherId() == teacherId) {
+                        if (  teacher.getTeacherId() == teacherId && teacher instanceof Tutor) {
                             Tutor tutor = (Tutor) teacher;
                             if (tutor.getIsCertified()) {
                                 JOptionPane.showMessageDialog(null, "Tutor Certified, cant remove");

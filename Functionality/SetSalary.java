@@ -6,7 +6,6 @@ import CustomJPackages.CustomButton;
 import CustomJPackages.CustomComboBox;
 import CustomJPackages.CustomLabel;
 import CustomJPackages.CustomTextField;
-
 import javax.swing.*;
 import java.awt.*;
 import java.util.ArrayList;

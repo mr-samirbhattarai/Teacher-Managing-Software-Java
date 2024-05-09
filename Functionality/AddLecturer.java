@@ -24,10 +24,10 @@ public class AddLecturer extends JFrame {
         setVisible(true);
         setDefaultCloseOperation(DISPOSE_ON_CLOSE);
 
+        // create panel
         JPanel lecturerPanel = new JPanel();
-        lecturerPanel.setBackground(Color.LIGHT_GRAY);
-        lecturerPanel.setLayout(new GridBagLayout());
-        GridBagConstraints constraints = new GridBagConstraints();
+        lecturerPanel.setBackground(Color.LIGHT_GRAY);      // set color to light grey
+        lecturerPanel.setLayout(new GridBagLayout());       // set layout to grid layout
 
 
         // Label
@@ -49,7 +49,7 @@ public class AddLecturer extends JFrame {
         departmentTextField = new CustomTextField("");
         yearsOfExperienceTextField = new CustomTextField("");
 
-        // ComboBoxs
+        // ComboBoxes
         workingTypeComboBox = new CustomComboBox(new String[]{"Select Working Type", "Full Time", "Part Time", "Module Wise"});
         employmentStatusComboBox = new CustomComboBox(new String[]{"Select Employment Status", "In-Field", "Remote"});
 
@@ -113,20 +113,27 @@ public class AddLecturer extends JFrame {
         }
         });
 
+        // clear button action listener
         clearButton.addActionListener(Action ->{
             clear();
         });
 
+        // back displayLecturer button action listener
         displayLecturerButton.addActionListener(Action ->{
             new DisplayLecturer(teachers);
         });
 
+
+        // back button action listener
         goBackButton.addActionListener(Action ->{
             back();
 
         });
 
 
+        GridBagConstraints constraints = new GridBagConstraints();
+
+        // placing components like label, textfield, combobox, buttons
         constraints.gridx = 0;
         constraints.gridy = 0;
         constraints.gridwidth = 1;

@@ -49,7 +49,7 @@ public class Lecturer extends Teacher   //creating class, CourseWork1.Lecturer
 
     // creating method gradeAssignment
     public void gradeAssignment(int gradedScore, String department, int yearsOfExperience){
-        if(yearsOfExperience >= 5 && this.department == department){
+        if(yearsOfExperience >= 5 && this.department.equals(department)){
             if(gradedScore >=70 && gradedScore <= 100){
                 System.out.println("Your grade is A");
             }else if(gradedScore >=60 && gradedScore < 70){
